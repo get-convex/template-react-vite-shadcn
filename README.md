@@ -1,4 +1,4 @@
-# Convex + TypeScript + ESLint + Vite + React
+# Convex + TypeScript + ESLint + Vite + React + Tailwind + shadcn/ui
 
 This template provides a minimal setup to get Convex working, with TypeScript,
 ESLint and React using Vite.

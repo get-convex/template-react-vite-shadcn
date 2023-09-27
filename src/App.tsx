@@ -1,6 +1,4 @@
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Button } from "@/components/ui/button";
 import { useMutation, useQuery } from "convex/react";
 import { api } from "../convex/_generated/api";
 
@@ -9,34 +7,54 @@ function App() {
   const addNumber = useMutation(api.myFunctions.addNumber);
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Convex + React (Vite)</h1>
-      <div className="card">
-        <p>
-          Click the button and open this page in another window - this data is
-          persisted in the Convex cloud database!
-        </p>
-        <button
+    <main className="container max-w-2xl flex flex-col gap-8">
+      <h1 className="text-4xl font-extrabold my-8 text-center">
+        Convex + React (Vite)
+      </h1>
+      <p>
+        Click the button and open this page in another window - this data is
+        persisted in the Convex cloud database!
+      </p>
+      <p>
+        <Button
           onClick={() => {
             void addNumber({ value: Math.floor(Math.random() * 10) });
           }}
         >
           Add a random number
-        </button>
-        <p>Numbers: {numbers?.join(", ") ?? "..."}</p>
-      </div>
-      <p>
-        Edit <code>convex/myFunctions.ts</code> to change your backend
+        </Button>
       </p>
-    </>
+      <p>
+        Numbers:{" "}
+        {numbers?.length === 0
+          ? "Click the button!"
+          : numbers?.join(", ") ?? "..."}
+      </p>
+      <p>
+        Edit{" "}
+        <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+          convex/myFunctions.ts
+        </code>{" "}
+        to change your backend
+      </p>
+      <p>
+        Edit{" "}
+        <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+          src/App.tsx
+        </code>{" "}
+        to change your frontend
+      </p>
+      <p>
+        Check out{" "}
+        <a
+          className="font-medium text-primary underline underline-offset-4"
+          target="_blank"
+          href="https://docs.convex.dev/home"
+        >
+          Convex docs
+        </a>
+      </p>
+    </main>
   );
 }
 
