@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* To change the theme colors, change the values below
+  or use the "Copy code" button at https://ui.shadcn.com/themes */
 @layer base {
   :root {
     --background: 0 0% 100%;
