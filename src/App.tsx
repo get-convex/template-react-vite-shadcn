@@ -1,3 +1,5 @@
+import { Layout } from "@/Layout";
+
 export default function App() {
-  return "Hello world!";
+  return <Layout>Hello world</Layout>;
 }
